@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2u10sjio826g"]
+
+[ext_resource type="PackedScene" uid="uid://b747uwa6hylw" path="res://Scenes/Player.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://chqy45hwb5b06" path="res://Assets/Rocky Roads/Tilesets/tileset_desert.png" id="2_cdffl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akgun"]
+size = Vector2(64, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5rfe"]
+size = Vector2(96, 44)
+
+[node name="World3D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(201, 204)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("2_cdffl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-32, -19)
+shape = SubResource("RectangleShape2D_akgun")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-32, 10)
+shape = SubResource("RectangleShape2D_l5rfe")

@@ -1,0 +1,8 @@
+res://Player.tscn
+res://Scenes/Player.tscn
+res://Player.gd
+res://Components/PlayerStates/walk.gd
+res://Scenes/World.tscn
+res://jump.gd
+res://Components/PlayerStates/idle.gd
+res://Components/PlayerStates/fall.gd

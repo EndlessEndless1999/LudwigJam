@@ -1,0 +1,50 @@
+[gd_scene load_steps=11 format=3 uid="uid://b747uwa6hylw"]
+
+[ext_resource type="Script" path="res://Player.gd" id="2"]
+[ext_resource type="Script" path="res://Components/StateMachine/state_machine.gd" id="2_xkosu"]
+[ext_resource type="Script" path="res://Components/PlayerStates/idle.gd" id="3_2s54i"]
+[ext_resource type="Script" path="res://Components/PlayerStates/walk.gd" id="4_ieisa"]
+[ext_resource type="Script" path="res://jump.gd" id="5_6csjc"]
+[ext_resource type="Script" path="res://Components/PlayerStates/fall.gd" id="6_bfr61"]
+[ext_resource type="Script" path="res://Components/PlayerStates/shoot.gd" id="7_hc8b6"]
+[ext_resource type="Texture2D" uid="uid://vrxnkn56euww" path="res://icon.png" id="8"]
+[ext_resource type="Script" path="res://Components/PlayerStates/dead.gd" id="8_p1bh4"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 33.0606
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 5
+position = Vector2(169, 114)
+script = ExtResource("2")
+
+[node name="state_machine" type="Node" parent="."]
+script = ExtResource("2_xkosu")
+
+[node name="idle" type="Node" parent="state_machine"]
+script = ExtResource("3_2s54i")
+
+[node name="walk" type="Node" parent="state_machine"]
+script = ExtResource("4_ieisa")
+
+[node name="jump" type="Node" parent="state_machine"]
+script = ExtResource("5_6csjc")
+
+[node name="fall" type="Node" parent="state_machine"]
+script = ExtResource("6_bfr61")
+
+[node name="shoot" type="Node" parent="state_machine"]
+script = ExtResource("7_hc8b6")
+
+[node name="dead" type="Node" parent="state_machine"]
+script = ExtResource("8_p1bh4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.237, 0.25)
+texture = ExtResource("8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
